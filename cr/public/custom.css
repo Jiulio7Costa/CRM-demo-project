@@ -1,5 +1,7 @@
 /* public/custom.css */
 
+/* Updated to use logical properties */
+/*
 body {
     font-family: 'Figtree', sans-serif;
     background-color: #f7fafc;
@@ -11,7 +13,7 @@ body {
     color: #4a5568;
     text-decoration: none;
     padding: 0.5rem 1rem;
-    margin-inline-end: 1rem; /* Updated from margin-right */
+    margin-inline-end: 1rem; 
 }
 
 .nav-link:hover {
@@ -19,13 +21,13 @@ body {
 }
 
 .container {
-    max-inline-size: 1200px; /* Updated from max-width */
+    max-inline-size: 1200px; 
     margin: 0 auto;
     padding: 1rem;
 }
 
 h2 {
-    margin-block-end: 1rem; /* Updated from margin-bottom */
+    margin-block-end: 1rem; 
     font-size: 2rem;
 }
 
@@ -36,7 +38,7 @@ ul {
 
 li {
     display: inline;
-    margin-inline-end: 1rem; /* Updated from margin-right */
+    margin-inline-end: 1rem; 
 }
 
 a {
@@ -55,7 +57,7 @@ nav {
 
 nav a {
     color: #4a5568;
-    margin-inline-end: 1rem; /* Updated from margin-right */
+    margin-inline-end: 1rem; 
     text-decoration: none;
 }
 
@@ -71,8 +73,8 @@ nav a:hover {
 }
 
 .header img {
-    block-size: 40px; /* Updated from height */
-    inline-size: auto; /* Ensure image scales appropriately */
+    block-size: 40px; 
+    inline-size: auto; 
 }
 
 .header a {
@@ -94,6 +96,7 @@ nav a:hover {
 }
 
 .navbar-logo {
-    block-size: 40px; /* Updated from height */
+    block-size: 40px; 
     vertical-align: middle;
 }
+*/
