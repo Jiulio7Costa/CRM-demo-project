@@ -19,10 +19,12 @@ class ProposalController extends Controller
     }
 
     public function store(Request $request)
-    {
-        $proposal = Proposal::create($request->all());
-        return redirect()->route('proposals.index');
-    }
+{
+    $proposalData = $request->except('_token'); // Exclude the _token field
+    $proposal = Proposal::create($proposalData);
+    return redirect()->route('proposals.index');
+}
+
 
     public function show(Proposal $proposal)
     {
