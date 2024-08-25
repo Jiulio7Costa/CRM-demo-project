@@ -37,11 +37,12 @@
                     <a class="nav-link" href="{{ route('invoices.index') }}">Invoices</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('transactions.index') }}">Transactions</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="{{ route('proposals.index') }}">Proposals</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('transactions.index') }}">Transactions</a>
+                </li>
+            
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('profile.edit') }}">Profile</a>
                 </li>
