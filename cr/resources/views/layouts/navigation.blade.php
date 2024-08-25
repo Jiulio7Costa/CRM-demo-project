@@ -1,22 +1,23 @@
-<nav class="bg-white shadow">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16">
-            <div class="flex">
+<nav class="bg-white shadow-md">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div class="flex justify-between items-center h-16">
+            <!-- Left side - Logo and Links -->
+            <div class="flex items-center space-x-6">
+                <!-- Logo -->
                 <div class="flex-shrink-0">
                     <a href="{{ route('dashboard') }}">
-                        <img class="h-8 w-8" src="/img/logo.svg" alt="Logo">
+                        <img class="h-10 w-10" src="/img/logo.svg" alt="Logo">
                     </a>
                 </div>
-                <div class="hidden sm:-my-px sm:ml-10 sm:flex">
-                    <a href="{{ route('dashboard') }}" class="text-gray-500 hover:text-gray-700 focus:outline-none focus:text-gray-700 transition duration-150 ease-in-out">Dashboard</a>
-                    <a href="{{ route('profile.edit') }}" class="ml-8 text-gray-500 hover:text-gray-700 focus:outline-none focus:text-gray-700 transition duration-150 ease-in-out">Profile</a>
-                </div>
-            </div>
-            <div class="hidden sm:ml-6 sm:flex sm:items-center">
-                <div class="relative">
-                    <button class="max-w-xs bg-white flex items-center text-sm rounded-full focus:outline-none focus:shadow-solid" id="user-menu" aria-label="User menu" aria-haspopup="true">
-                        <img class="h-8 w-8 rounded-full" src="/img/user.jpg" alt="">
-                    </button>
+
+                <!-- Navigation Links -->
+                <div class="hidden sm:flex sm:space-x-6">
+                    <a href="{{ route('dashboard') }}" class="text-black hover:text-gray-800 transition duration-200 ease-in-out text-lg font-medium">Dashboard</a>
+                    <a href="{{ route('customers.index') }}" class="text-black hover:text-gray-800 transition duration-200 ease-in-out text-lg font-medium">Customers</a>
+                    <a href="{{ route('invoices.index') }}" class="text-black hover:text-gray-800 transition duration-200 ease-in-out text-lg font-medium">Invoices</a>
+                    <a href="{{ route('transactions.index') }}" class="text-black hover:text-gray-800 transition duration-200 ease-in-out text-lg font-medium">Transactions</a>
+                    <a href="{{ route('proposals.index') }}" class="text-black hover:text-gray-800 transition duration-200 ease-in-out text-lg font-medium">Proposals</a>
+                    <a href="{{ route('profile.edit') }}" class="text-black hover:text-gray-800 transition duration-200 ease-in-out text-lg font-medium">Profile</a>
                 </div>
             </div>
         </div>
