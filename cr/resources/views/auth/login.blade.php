@@ -11,7 +11,7 @@
 
                     <!-- Email Field -->
                     <div class="form-group">
-                        <x-input-label for="email" :value="__('Email')" class="label" />
+                        <!-- <x-input-label for="email" :value="__('Email')" class="label" /> -->
                         <x-text-input id="email" class="input"
                             type="email"
                             name="email"
@@ -25,7 +25,7 @@
 
                     <!-- Password Field -->
                     <div class="form-group">
-                        <x-input-label for="password" :value="__('Password')" class="label" />
+                        <!-- <x-input-label for="password" :value="__('Password')" class="label" /> -->
                         <x-text-input id="password" class="input"
                             type="password"
                             name="password"
@@ -74,7 +74,7 @@
         /* Centered white container */
         .div-center {
             inline-size: 90%;
-            max-inline-size: 450px; /* max width */
+            max-inline-size: 400px; /* Adjusted to increase the width of the container */
             block-size: auto; /* auto height */
             background-color: #fff;
             margin: auto;
@@ -127,7 +127,8 @@
         /* Input field styling */
         .input {
             block-size: 2.5rem;
-            inline-size: 100%;
+            inline-size: 90%; /* Reduced input width for more padding */
+            max-inline-size: 100%;
             padding: 0.5rem;
             border: 1px solid #ccc;
             border-radius: 5px;
@@ -150,7 +151,7 @@
 
         /* Login button styling */
         .login-button {
-            inline-size: 100%;
+            inline-size: 60%; /* Adjusted width to make it shorter */
             block-size: 2.75rem;
             background-color: #3498db;
             color: #fff;
