@@ -21,6 +21,7 @@ class InvoiceMail extends Mailable
     public function build()
     {
         return $this->view('emails.invoice')
-                    ->with(['invoice' => $this->invoice]);
+                    ->with(['invoice' => $this->invoice])
+                    ->subject('Invoice #'.$this->invoice->id);
     }
 }
