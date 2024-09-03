@@ -3,6 +3,7 @@
 use App\Mail\TestEmail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PdfController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\InvoiceController;
@@ -52,8 +53,17 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('transactions', TransactionController::class);
 });
 
-Route::get('payment/{invoice}', [PaymentController::class, 'payment'])->name('payment');
-Route::post('payment/{invoice}', [PaymentController::class, 'processPayment'])->name('processPayment');
+// Route to show the payment form
+Route::get('/invoice/{invoice}/payment', [PaymentController::class, 'payment'])->name('payment.show');
+
+// Route to process the payment
+Route::post('/invoice/{invoice}/payment', [PaymentController::class, 'processPayment'])->name('payment.process');
+
+Route::post('/invoices', [InvoiceController::class, 'store'])->name('invoices.store');
+
+// Route for generating and downloading PDF
+Route::get('invoice/{invoice}/pdf', [PdfController::class, 'downloadInvoice'])->name('invoice.pdf');
+
 
 
 
