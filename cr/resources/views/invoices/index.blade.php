@@ -63,6 +63,7 @@
                         <th>ID</th>
                         <th>Amount</th>
                         <th>Date</th>
+                        <th>Customer</th> <!-- New column for Customer -->
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -78,6 +79,7 @@
                                     N/A
                                 @endif
                             </td>
+                            <td>{{ $invoice->customer->name ?? 'N/A' }}</td> <!-- Display customer name -->
                             <td>
                                 <a href="{{ route('invoices.show', $invoice->id) }}" class="btn btn-secondary btn-sm">View</a>
                                 <a href="{{ route('invoices.edit', $invoice->id) }}" class="btn btn-warning btn-sm">Edit</a>
