@@ -6,30 +6,48 @@ use Illuminate\Support\Facades\Schema;
 
 class FixInvoicesTable extends Migration
 {
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
     public function up()
     {
         Schema::table('invoices', function (Blueprint $table) {
-            // Check if the column exists before adding it
-            if (!Schema::hasColumn('invoices', 'status')) {
-                $table->string('status')->default('pending');
+            // Check if foreign key exists before attempting to drop
+            if (Schema::hasTable('invoices')) {
+                $existingForeignKeys = \DB::select("
+                    SELECT CONSTRAINT_NAME
+                    FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE
+                    WHERE TABLE_NAME = 'invoices' AND CONSTRAINT_SCHEMA = DATABASE()
+                ");
+                
+                foreach ($existingForeignKeys as $key) {
+                    if ($key->CONSTRAINT_NAME === 'invoices_customer_id_foreign') {
+                        $table->dropForeign(['customer_id']);
+                        break;
+                    }
+                }
             }
-            if (!Schema::hasColumn('invoices', 'customer_id')) {
-                $table->foreignId('customer_id')->constrained()->onDelete('cascade');
-            }
+
+            // Modify the customer_id column
+            $table->unsignedBigInteger('customer_id')->nullable()->change();
         });
     }
 
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
     public function down()
     {
         Schema::table('invoices', function (Blueprint $table) {
-            if (Schema::hasColumn('invoices', 'status')) {
-                $table->dropColumn('status');
-            }
-            if (Schema::hasColumn('invoices', 'customer_id')) {
-                $table->dropForeign(['customer_id']);
-                $table->dropColumn('customer_id');
-            }
+            // Re-add the foreign key
+            $table->foreign('customer_id')->references('id')->on('customers')->onDelete('set null');
+            
+            // Revert the column change
+            $table->unsignedBigInteger('customer_id')->nullable(false)->change();
         });
     }
 }
-
