@@ -50,6 +50,16 @@
             font-size: 14px;
             color: #888;
         }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-block-start: 20px;
+            background-color: #28a745;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
     </style>
 </head>
 <body>
@@ -64,6 +74,8 @@
                 <p><strong>Amount:</strong> ${{ number_format($invoice->amount, 2) }}</p>
                 <p><strong>Status:</strong> {{ $invoice->status }}</p>
             </div>
+            <p>To make a payment, click the button below:</p>
+            <a href="{{ route('pay.invoice', ['invoice' => $invoice->id]) }}" class="button">Pay Invoice</a>
             <p>Thank you for your business!</p>
         </div>
         <div class="footer">
