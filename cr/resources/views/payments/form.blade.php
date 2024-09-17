@@ -8,7 +8,7 @@
 <body>
     <h1>Payment for Invoice {{ $invoice->id }}</h1>
     <p>Email: {{ $invoice->customer->email }}</p>
-    <form action="{{ route('payments.handle', $invoice->id) }}" method="POST" id="payment-form">
+    <form action="{{ route('processPayment', $invoice->id) }}" method="POST" id="payment-form">
         @csrf
         <div class="form-group">
             <label for="card-element">
